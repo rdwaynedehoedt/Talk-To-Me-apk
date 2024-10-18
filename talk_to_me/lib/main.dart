@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'welcome_screen.dart'; // Import the welcome screen
+import 'welcome_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,9 +11,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Talk To Me',
       theme: ThemeData(
-        primarySwatch: Colors.brown, // Change to your preferred color
+        primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: WelcomeScreen(), // Set the welcome screen as the home
+      home: WelcomeScreen(),
     );
   }
 }

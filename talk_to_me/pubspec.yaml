@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.8
 
 dev_dependencies:
+
   flutter_test:
     sdk: flutter
 
@@ -88,3 +89,18 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+
+
+  assets:
+    - assets/logo.png
+
+
+fonts:
+  - family: Lora
+    fonts:
+      - asset: fonts/Lora-Bold.ttf
+  - family: Urbanist
+    fonts:
+      - asset: fonts/Urbanist-Bold.ttf
+      - asset: fonts/Urbanist-ExtraBold.ttf
+
