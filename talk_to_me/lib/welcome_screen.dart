@@ -6,18 +6,20 @@ class WelcomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color(0xFFF7F4F2), // Background color
       body: SafeArea(
+
         child: Center( // Wrap everything in Center widget
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center, // Center all elements horizontally
+
             children: <Widget>[
               Spacer(),
-              // Adjusted the image size
               Image.asset(
                 'assets/logo.png',
-                width: 100, // Set the desired width
-                height: 100, // Set the desired height
-              ),
+                width: 100,
+                height: 100,
+              )
+
               SizedBox(height: 32),
               Text(
                 'TALK TO ME',
