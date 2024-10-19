@@ -48,7 +48,8 @@ class WelcomeScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 32),
+              SizedBox(height: 32 ),
+
               Text(
                 'Already have an account?',
                 style: TextStyle(
@@ -69,8 +70,11 @@ class WelcomeScreen extends StatelessWidget {
                   ),
                 ),
               ),
+
               Spacer(),
+
             ],
+
           ),
         ),
       ),
