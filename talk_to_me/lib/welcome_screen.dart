@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'Sign_in_page.dart';
 
 class WelcomeScreen extends StatelessWidget {
   @override
@@ -59,7 +60,12 @@ class WelcomeScreen extends StatelessWidget {
                 ),
               ),
               TextButton(
-                onPressed: () {}, // Placeholder function for button press
+                onPressed: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SignInPage()),
+                  );
+                }, // Placeholder function for button press
                 child: Text(
                   'Sign In.',
                   style: TextStyle(
