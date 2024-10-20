@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'Sign_in_page.dart';
+import 'Sign_up_page.dart';
 
 class WelcomeScreen extends StatelessWidget {
   @override
@@ -33,12 +34,18 @@ class WelcomeScreen extends StatelessWidget {
               ),
               SizedBox(height: 32),
               MaterialButton(
-                onPressed: () {}, // Placeholder function for button press
+                onPressed: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SignUpPage()),
+                  );
+                },
                 color: Color(0xFF2AB2A3),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
                 ),
                 padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+
                 child: Text(
                   'Get Started',
                   style: TextStyle(
