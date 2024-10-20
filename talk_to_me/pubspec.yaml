@@ -27,6 +27,9 @@ flutter:
   assets:
     - assets/images/backbutton.svg
     - assets/images/logo.png
+    - assets/images/microsoft_icon.svg
+    - assets/images/google_icon.svg
+    - assets/images/apple_icon.svg
 
 
 fonts:
@@ -37,3 +40,5 @@ fonts:
     fonts:
       - asset: fonts/Urbanist-Bold.ttf
       - asset: fonts/Urbanist-ExtraBold.ttf
+
+

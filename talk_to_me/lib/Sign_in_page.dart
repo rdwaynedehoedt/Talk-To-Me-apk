@@ -27,7 +27,6 @@ class _SignInPageState extends State<SignInPage> {
                     'assets/images/backbutton.svg',
                     width: 24,
                     height: 24,
-
                   ),
                   onPressed: () {
                     Navigator.pop(context); // Go back to the previous page
@@ -164,6 +163,43 @@ class _SignInPageState extends State<SignInPage> {
                     color: Colors.white,
                   ),
                 ),
+              ),
+              SizedBox(height: 20),
+              // Google, Microsoft, Apple Sign In Buttons
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  // Microsoft Button
+                  IconButton(
+                    onPressed: () {},
+                    icon: SvgPicture.asset(
+                      'assets/images/microsoft_icon.svg',
+                      width: 40,
+                      height: 40,
+
+                    ),
+                  ),
+                  // Google Button
+                  IconButton(
+                    onPressed: () {},
+                    icon: SvgPicture.asset(
+                      'assets/images/google_icon.svg',
+                      width: 40,
+                      height: 40,
+
+                    ),
+                  ),
+                  // Apple Button
+                  IconButton(
+                    onPressed: () {},
+                    icon: SvgPicture.asset(
+                      'assets/images/apple_icon.svg',
+                      width: 40,
+                      height: 40,
+
+                    ),
+                  ),
+                ],
               ),
               SizedBox(height: 20),
               // Forgot Password Link
