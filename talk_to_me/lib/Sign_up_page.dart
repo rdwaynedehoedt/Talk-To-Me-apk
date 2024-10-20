@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter/gestures.dart';
+import 'Sign_in_page.dart';
+import 'welcome_screen.dart';
 
 class SignUpPage extends StatefulWidget {
   @override
@@ -29,7 +32,9 @@ class _SignUpPageState extends State<SignUpPage> {
                     height: 24,
                   ),
                   onPressed: () {
-                    Navigator.pop(context);
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => WelcomeScreen())
+                    );
                   },
                 ),
               ),
@@ -220,11 +225,13 @@ class _SignUpPageState extends State<SignUpPage> {
                           color: Color(0xFF2AB2A3), // Color for "Get Start"
                           decoration: TextDecoration.underline, // Underline for the link
                         ),
-                        //recognizer: TapGestureRecognizer()
-                        //..onTap = () {
-                        // Navigate to the sign-up page or perform an action when "Get Start" is tapped
-                        //print('Get Start clicked');
-                        //},
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => SignInPage()), // Update with the correct page name
+                            );
+                          },
                       ),
                     ],
                   ),
