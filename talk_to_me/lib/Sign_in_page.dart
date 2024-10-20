@@ -15,9 +15,9 @@ class _SignInPageState extends State<SignInPage> {
       backgroundColor: Color(0xFFF7F4F2), // Background color from your design
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(16.0), // Padding around the content
+          padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 32.0), // Adjust padding for more space
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch, // Stretch to fill the screen width
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               // Back Button
               Align(
@@ -29,24 +29,25 @@ class _SignInPageState extends State<SignInPage> {
                     height: 24,
                   ),
                   onPressed: () {
-                    Navigator.pop(context); // Go back to the previous page
+                    Navigator.pop(context);
                   },
                 ),
               ),
-              SizedBox(height: 40), // Space from the top of the page
+              SizedBox(height: 50), // More space after the back button
+
               // Title Text
               Center(
                 child: Text(
                   'Sign In To Talk To Me',
                   style: TextStyle(
                     fontFamily: 'Lora',
-                    fontSize: 24,
+                    fontSize: 28, // Slightly larger font size for the title
                     fontWeight: FontWeight.bold,
                     color: Colors.black,
                   ),
                 ),
               ),
-              SizedBox(height: 40), // Space between title and form fields
+              SizedBox(height: 50), // Increased space between title and fields
 
               // Email Field
               Text(
@@ -79,14 +80,14 @@ class _SignInPageState extends State<SignInPage> {
                     fontFamily: 'Urbanist',
                     fontWeight: FontWeight.w800,
                     fontSize: 14,
-                    color: Color.fromRGBO(0, 0, 0, 0.6), // Mindful Brown/80
+                    color: Color.fromRGBO(0, 0, 0, 0.6),
                     letterSpacing: -0.01,
                   ),
-                  contentPadding: const EdgeInsets.symmetric(horizontal: 16), // Horizontal padding for better alignment
+                  contentPadding: const EdgeInsets.symmetric(horizontal: 16),
                   filled: true,
-                  fillColor: Color(0xFFFFFFFF), // Mindful Brown/White
+                  fillColor: Color(0xFFFFFFFF),
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(1234), // Large border radius as per Figma design
+                    borderRadius: BorderRadius.circular(16), // Reduced border radius for a clean look
                     borderSide: BorderSide(
                       color: Color.fromRGBO(0, 0, 0, 0.6), // Serenity Green/50 border color
                       width: 1,
@@ -94,7 +95,8 @@ class _SignInPageState extends State<SignInPage> {
                   ),
                 ),
               ),
-              SizedBox(height: 20), // Space between title and form fields
+              SizedBox(height: 30), // More space between form fields
+
               // Password Field
               Text(
                 'Password',
@@ -122,14 +124,14 @@ class _SignInPageState extends State<SignInPage> {
                     fontFamily: 'Urbanist',
                     fontWeight: FontWeight.w700,
                     fontSize: 14,
-                    color: Color.fromRGBO(31, 22, 15, 0.33), // rgba(31, 22, 15, 0.33)
+                    color: Color.fromRGBO(31, 22, 15, 0.33),
                     letterSpacing: -0.01,
                   ),
                   contentPadding: const EdgeInsets.symmetric(horizontal: 16),
                   filled: true,
                   fillColor: Colors.white,
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(1234), // Large border radius as per Figma design
+                    borderRadius: BorderRadius.circular(16),
                     borderSide: BorderSide.none,
                   ),
                   suffixIcon: IconButton(
@@ -145,15 +147,16 @@ class _SignInPageState extends State<SignInPage> {
                   ),
                 ),
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 40), // More space before Sign In Button
+
               // Sign In Button
               MaterialButton(
                 onPressed: () {},
                 color: Color(0xFF2AB2A3),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(24),
                 ),
-                padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                padding: EdgeInsets.symmetric(horizontal: 30, vertical: 16), // Larger padding for more prominence
                 child: Text(
                   'Sign In',
                   style: TextStyle(
@@ -164,44 +167,72 @@ class _SignInPageState extends State<SignInPage> {
                   ),
                 ),
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 30),
+
               // Google, Microsoft, Apple Sign In Buttons
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  // Microsoft Button
                   IconButton(
                     onPressed: () {},
                     icon: SvgPicture.asset(
                       'assets/images/microsoft_icon.svg',
                       width: 40,
                       height: 40,
-
                     ),
                   ),
-                  // Google Button
                   IconButton(
                     onPressed: () {},
                     icon: SvgPicture.asset(
                       'assets/images/google_icon.svg',
                       width: 40,
                       height: 40,
-
                     ),
                   ),
-                  // Apple Button
                   IconButton(
                     onPressed: () {},
                     icon: SvgPicture.asset(
                       'assets/images/apple_icon.svg',
                       width: 40,
                       height: 40,
-
                     ),
                   ),
                 ],
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 40), // Add more space below the buttons
+
+              // RichText for "Don’t have an account? Get Start."
+              Center(
+                child: RichText(
+                  text: TextSpan(
+                    text: 'Don’t have an account? ',
+                    style: TextStyle(
+                      fontFamily: 'Urbanist',
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: 'Get Start.',
+                        style: TextStyle(
+                          color: Color(0xFF2AB2A3), // Color for "Get Start"
+                          decoration: TextDecoration.underline, // Underline for the link
+                        ),
+                        //recognizer: TapGestureRecognizer()
+                          //..onTap = () {
+                            // Navigate to the sign-up page or perform an action when "Get Start" is tapped
+                            //print('Get Start clicked');
+                          //},
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+
+              SizedBox(height: 20), // Space between "Get Start" and "Forgot Password"
+
+
               // Forgot Password Link
               Center(
                 child: TextButton(
