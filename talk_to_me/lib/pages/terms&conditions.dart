@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/gestures.dart';
-import 'welcome_screen.dart';
-import 'Sign_up_page.dart';
+import '../pages/welcome_screen.dart';
+import '../pages/Sign_up_page.dart';
 
 class TandC extends StatefulWidget {
   @override

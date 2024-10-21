@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'Sign_in_page.dart';
-import 'Sign_up_page.dart';
+import '../pages/Sign_up_page.dart';
 
 class WelcomeScreen extends StatelessWidget {
   @override

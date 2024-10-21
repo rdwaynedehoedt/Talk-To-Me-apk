@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'Sign_up_page.dart';
 import 'package:flutter/gestures.dart';
+import '../pages/terms&conditions.dart';
+import '/pages/Sign_in_page.dart';
 import 'welcome_screen.dart';
+import 'welcome_slide.dart';
 
-
-class SignInPage extends StatefulWidget {
+class SignUpPage extends StatefulWidget {
   @override
-  _SignInPageState createState() => _SignInPageState();
+  _SignUpPageState createState() => _SignUpPageState();
 }
 
-class _SignInPageState extends State<SignInPage> {
+class _SignUpPageState extends State<SignUpPage> {
   bool _obscureText = true;
+  bool _termsAccepted = false;
 
   @override
   Widget build(BuildContext context) {
@@ -153,18 +155,67 @@ class _SignInPageState extends State<SignInPage> {
                   ),
                 ),
               ),
-              SizedBox(height: 40), // More space before Sign In Button
+              SizedBox(height: 20), // More space before Sign In Button
 
-              // Sign In Button
+              // Terms & Conditions Checkbox and Text
+              Row(
+                children: [
+                  Checkbox(
+                    value: _termsAccepted,
+                    onChanged: (bool? value) {
+                      setState(() {
+                        _termsAccepted = value ?? false;
+                      });
+                    },
+                  ),
+                  Expanded(
+                    child: RichText(
+                      text: TextSpan(
+                        text: 'I Agree with the ',
+                        style: TextStyle(
+                          fontFamily: 'Urbanist',
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        ),
+                        children: <TextSpan>[
+                          TextSpan(
+                            text: 'Terms & Conditions',
+                            style: TextStyle(
+                              color: Color(0xFF2AB2A3),
+                              decoration: TextDecoration.underline,
+                            ),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => TandC()),
+                                );
+                              },
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 20), // More space before Sign Up Button
+
+              // Sign Up Button
               MaterialButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => WelcomeSlides()),
+                  );
+                },
                 color: Color(0xFF2AB2A3),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(24),
                 ),
                 padding: EdgeInsets.symmetric(horizontal: 30, vertical: 16), // Larger padding for more prominence
                 child: Text(
-                  'Sign In',
+                  'Sign Up',
                   style: TextStyle(
                     fontFamily: 'Urbanist',
                     fontSize: 18,
@@ -173,6 +224,7 @@ class _SignInPageState extends State<SignInPage> {
                   ),
                 ),
               ),
+
               SizedBox(height: 30),
 
               // Google, Microsoft, Apple Sign In Buttons
@@ -207,11 +259,11 @@ class _SignInPageState extends State<SignInPage> {
               ),
               SizedBox(height: 40), // Add more space below the buttons
 
-              // RichText for "Don’t have an account? Get Start."
+              // RichText for "Already have an account? Sign in."
               Center(
                 child: RichText(
                   text: TextSpan(
-                    text: 'Don’t have an account? ',
+                    text: 'Already have an account?',
                     style: TextStyle(
                       fontFamily: 'Urbanist',
                       fontSize: 14,
@@ -220,39 +272,20 @@ class _SignInPageState extends State<SignInPage> {
                     ),
                     children: <TextSpan>[
                       TextSpan(
-                        text: 'Get Start.',
+                        text: ' Sign in.',
                         style: TextStyle(
-                          color: Color(0xFF2AB2A3), // Color for "Get Start"
+                          color: Color(0xFF2AB2A3), // Color for "Sign in"
                           decoration: TextDecoration.underline, // Underline for the link
                         ),
                         recognizer: TapGestureRecognizer()
                           ..onTap = () {
-                          Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => SignUpPage()), // Update with the correct page name
-                          );
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => SignInPage()),
+                            );
                           },
                       ),
                     ],
-                  ),
-                ),
-              ),
-
-              SizedBox(height: 20), // Space between "Get Start" and "Forgot Password"
-
-
-              // Forgot Password Link
-              Center(
-                child: TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    'Forgot Password?',
-                    style: TextStyle(
-                      fontFamily: 'Urbanist',
-                      fontSize: 14,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFF2AB2A3),
-                    ),
                   ),
                 ),
               ),
