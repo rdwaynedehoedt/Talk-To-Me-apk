@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/gestures.dart';
+import 'package:talk_to_me/terms&conditions.dart';
 import 'Sign_in_page.dart';
 import 'welcome_screen.dart';
 
@@ -11,6 +12,7 @@ class SignUpPage extends StatefulWidget {
 
 class _SignUpPageState extends State<SignUpPage> {
   bool _obscureText = true;
+  bool _termsAccepted = false;
 
   @override
   Widget build(BuildContext context) {
@@ -154,10 +156,53 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
               SizedBox(height: 20), // More space before Sign In Button
 
-              SizedBox(height: 40), // More space before Sign In Button
-              // Sign In Button
+              // Terms & Conditions Checkbox and Text
+              Row(
+                children: [
+                  Checkbox(
+                    value: _termsAccepted,
+                    onChanged: (bool? value) {
+                      setState(() {
+                        _termsAccepted = value ?? false;
+                      });
+                    },
+                  ),
+                  Expanded(
+                    child: RichText(
+                      text: TextSpan(
+                        text: 'I Agree with the ',
+                        style: TextStyle(
+                          fontFamily: 'Urbanist',
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        ),
+                        children: <TextSpan>[
+                          TextSpan(
+                            text: 'Terms & Conditions',
+                            style: TextStyle(
+                              color: Color(0xFF2AB2A3),
+                              decoration: TextDecoration.underline,
+                            ),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => TandC()),
+                                );
+                              },
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 20), // More space before Sign Up Button
+
+              // Sign Up Button
               MaterialButton(
-                onPressed: () {},
+                onPressed: _termsAccepted ? () {} : null, // Disable button if terms not accepted
                 color: Color(0xFF2AB2A3),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(24),
@@ -173,6 +218,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                 ),
               ),
+
               SizedBox(height: 30),
 
               // Google, Microsoft, Apple Sign In Buttons
@@ -207,7 +253,7 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
               SizedBox(height: 40), // Add more space below the buttons
 
-              // RichText for "Don’t have an account? Get Start."
+              // RichText for "Already have an account? Sign in."
               Center(
                 child: RichText(
                   text: TextSpan(
@@ -220,16 +266,16 @@ class _SignUpPageState extends State<SignUpPage> {
                     ),
                     children: <TextSpan>[
                       TextSpan(
-                        text: 'Sing in.',
+                        text: ' Sign in.',
                         style: TextStyle(
-                          color: Color(0xFF2AB2A3), // Color for "Get Start"
+                          color: Color(0xFF2AB2A3), // Color for "Sign in"
                           decoration: TextDecoration.underline, // Underline for the link
                         ),
                         recognizer: TapGestureRecognizer()
                           ..onTap = () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => SignInPage()), // Update with the correct page name
+                              MaterialPageRoute(builder: (context) => SignInPage()),
                             );
                           },
                       ),
