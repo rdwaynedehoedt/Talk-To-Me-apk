@@ -32,6 +32,7 @@ flutter:
     - assets/images/google_icon.svg
     - assets/images/apple_icon.svg
     - assets/images/welcomeslide01.svg
+    - assets/images/welcomeslide02.svg
 
 
 fonts:

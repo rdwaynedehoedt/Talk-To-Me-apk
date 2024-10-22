@@ -6,6 +6,8 @@ class WelcomeSlides extends StatefulWidget {
   _WelcomeSlidesState createState() => _WelcomeSlidesState();
 }
 
+String currentSvg = 'assets/images/welcomeslide01.svg';
+
 class _WelcomeSlidesState extends State<WelcomeSlides> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<Offset> _slideAnimation;
@@ -33,6 +35,13 @@ class _WelcomeSlidesState extends State<WelcomeSlides> with SingleTickerProvider
   }
 
   @override
+  void _changeSvg(){
+    setState(() {
+      currentSvg = "assets/images/welcomeslide02.svg";
+    });
+  }
+
+  @override
   void dispose() {
     // Dispose of the controller to free up resources
     _controller.dispose();
@@ -46,12 +55,11 @@ class _WelcomeSlidesState extends State<WelcomeSlides> with SingleTickerProvider
         children: [
           // Background color
           Container(
-            color: Color(0xFFE5EAD7), // Set the background color to #E5EAD7
           ),
           // SVG as background
           Positioned.fill(
             child: SvgPicture.asset(
-              'assets/images/welcomeslide01.svg', // Relative path to your SVG asset
+              currentSvg, // Relative path to your SVG asset
               fit: BoxFit.cover, // Fit SVG to fill the available space
               alignment: Alignment.center, // Align the SVG properly
             ),
@@ -59,8 +67,8 @@ class _WelcomeSlidesState extends State<WelcomeSlides> with SingleTickerProvider
 
           // Button Icon with the specified position and style
           Positioned(
-            left: 148, // Left position from your provided CSS
-            top: 680, // Top position from your provided CSS
+            left: (MediaQuery.of(context).size.width / 2)- 40, // Left position from your provided CSS
+            top: 710, // Top position from your provided CSS
             child: Container(
               width: 80,
               height: 80,
@@ -71,10 +79,7 @@ class _WelcomeSlidesState extends State<WelcomeSlides> with SingleTickerProvider
               child: Center(
                 child: IconButton(
                   icon: Icon(Icons.arrow_forward, color: Colors.white), // Arrow icon (replace with custom if needed)
-                  onPressed: () {
-                    // Define action when the button is pressed
-                    print('Button Pressed');
-                  },
+                  onPressed: _changeSvg,
                 ),
               ),
             ),
