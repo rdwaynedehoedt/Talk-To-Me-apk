@@ -277,19 +277,33 @@ class _SignUpPageState extends State<SignUpPage> {
 
   Route _createRoute() {
     return PageRouteBuilder(
+      transitionDuration: Duration(milliseconds: 800), // Slower transition duration for smoothness
       pageBuilder: (context, animation, secondaryAnimation) => WelcomeSlides(),
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        const begin = Offset(0.0, 1.0); // Slide from the bottom
+        const begin = Offset(0.0, 1.0); // Slide in from the bottom
         const end = Offset.zero;
-        const curve = Curves.easeInOut;
+        const curve = Curves.easeInOutCubic; // Gentle cubic curve for smoother motion
 
-        var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+        var slideTween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+        // Fade-in effect
+        var fadeTween = Tween<double>(begin: 0.0, end: 1.0).chain(CurveTween(curve: curve));
+
+        // Slight scale effect for cool zoom-in transition
+        var scaleTween = Tween<double>(begin: 0.95, end: 1.0).chain(CurveTween(curve: curve));
 
         return SlideTransition(
-          position: animation.drive(tween),
-          child: child,
+          position: animation.drive(slideTween),
+          child: FadeTransition(
+            opacity: animation.drive(fadeTween),
+            child: ScaleTransition(
+              scale: animation.drive(scaleTween),
+              child: child,
+            ),
+          ),
         );
       },
     );
   }
+
 }

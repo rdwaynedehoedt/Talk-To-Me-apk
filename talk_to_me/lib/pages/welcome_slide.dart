@@ -7,8 +7,8 @@ class WelcomeSlides extends StatefulWidget {
 }
 
 class _WelcomeSlidesState extends State<WelcomeSlides> with SingleTickerProviderStateMixin {
-  late AnimationController _controller; // Declare as 'late' to initialize later
-  late Animation<Offset> _slideAnimation; // Declare as 'late' to initialize later
+  late AnimationController _controller;
+  late Animation<Offset> _slideAnimation;
 
   @override
   void initState() {
@@ -57,7 +57,28 @@ class _WelcomeSlidesState extends State<WelcomeSlides> with SingleTickerProvider
             ),
           ),
 
-
+          // Button Icon with the specified position and style
+          Positioned(
+            left: 148, // Left position from your provided CSS
+            top: 680, // Top position from your provided CSS
+            child: Container(
+              width: 80,
+              height: 80,
+              decoration: BoxDecoration(
+                color: Color(0xFF4B3425), // Mindful Brown/80 background color
+                borderRadius: BorderRadius.circular(1000), // Circular button
+              ),
+              child: Center(
+                child: IconButton(
+                  icon: Icon(Icons.arrow_forward, color: Colors.white), // Arrow icon (replace with custom if needed)
+                  onPressed: () {
+                    // Define action when the button is pressed
+                    print('Button Pressed');
+                  },
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );
