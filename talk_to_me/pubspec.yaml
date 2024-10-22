@@ -33,6 +33,8 @@ flutter:
     - assets/images/apple_icon.svg
     - assets/images/welcomeslide01.svg
     - assets/images/welcomeslide02.svg
+    - assets/images/welcomeslide03.svg
+    - assets/images/welcomeslide04.svg
 
 
 fonts:
