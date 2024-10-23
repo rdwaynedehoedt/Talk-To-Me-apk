@@ -48,6 +48,7 @@ class _WelcomeSlidesState extends State<WelcomeSlides> with SingleTickerProvider
     _controller.forward();
   }
 
+
   @override
   void dispose() {
     // Dispose of the controller to free up resources
