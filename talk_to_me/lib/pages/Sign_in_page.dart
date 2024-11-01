@@ -10,7 +10,6 @@ class SignInPage extends StatefulWidget {
   _SignInPageState createState() => _SignInPageState();
 }
 
-
 class _SignInPageState extends State<SignInPage> {
   bool _obscureText = true;
 
@@ -28,6 +27,7 @@ class _SignInPageState extends State<SignInPage> {
                 // Back Button
                 Align(
                   alignment: Alignment.topLeft,
+
                   child: IconButton(
                     icon: SvgPicture.asset(
                       'assets/images/backbutton.svg',
