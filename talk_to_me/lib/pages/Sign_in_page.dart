@@ -76,6 +76,7 @@ class _SignInPageState extends State<SignInPage> {
                         'assets/images/email_icon.svg', // Use asset SVG instead of SvgPicture.string()
                         width: 24,
                         height: 24,
+
                       ),
                     ),
                     hintText: 'Enter your email',
