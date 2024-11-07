@@ -146,6 +146,7 @@ class _SignInPageState extends State<SignInPage> {
                         setState(() {
                           _obscureText = !_obscureText;
                         });
+
                       },
                     ),
                   ),
