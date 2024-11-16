@@ -9,6 +9,7 @@ class WelcomeScreen extends StatelessWidget {
       backgroundColor: Color(0xFFF7F4F2), // Background color
       body: SafeArea(
 
+
         child: Center( // Wrap everything in Center widget
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

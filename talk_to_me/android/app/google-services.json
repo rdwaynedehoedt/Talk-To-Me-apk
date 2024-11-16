@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "109892298066",
-    "project_id": "talk-to-me-492f1",
-    "storage_bucket": "talk-to-me-492f1.appspot.com"
+    "project_number": "1082800127827",
+    "project_id": "talk-to-me-584ac",
+    "storage_bucket": "talk-to-me-584ac.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:109892298066:android:596696234e98fa6cab868b",
+        "mobilesdk_app_id": "1:1082800127827:android:667b6dd4e997c0ff88aba6",
         "android_client_info": {
-          "package_name": "com.android.application"
+          "package_name": "com.example.talk_to_me"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAWwofc8VCqUL2VSzWgDLHhVlVsFp1Mdo8"
+          "current_key": "AIzaSyC7g7P6DVz2QuFn4sPBRqSnWM4piCwu-KA"
         }
       ],
       "services": {
